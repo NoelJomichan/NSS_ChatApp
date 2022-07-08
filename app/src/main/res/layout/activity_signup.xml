@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Signup">
 
+
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="120dp"
@@ -67,17 +68,47 @@
 <!--        android:background="@drawable/button_bg"-->
 <!--        />-->
 
-    <Button
-        android:id="@+id/Signup_btn"
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggle_btn_grp"
+        android:layout_below="@id/edt_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_password"
-        android:text="Sign Up"
-        android:width="100dp"
+        app:singleSelection="true"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_bg"
+        >
+
+    <Button
+        android:id="@+id/guide_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guide"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
         />
+
+        <Button
+            android:id="@+id/student_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <Button
+        android:id="@+id/Signup_btn"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toggle_btn_grp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:width="100dp"
+        android:background="@drawable/button_bg"
+        android:text="Sign Up" />
 
 
 

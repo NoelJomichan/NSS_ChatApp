@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.os.Message
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class ChatActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var sendButton: ImageView
 
     private lateinit var messageAdapter: MessageAdapter
-    private lateinit var messageList: ArrayList<Message>
+    private lateinit var messageList: ArrayList<com.example.si_chatapp.Message>
 
     private lateinit var mDbRef: DatabaseReference
 
@@ -47,6 +47,34 @@ class ChatActivity : AppCompatActivity() {
 
         messageList = ArrayList()
         messageAdapter = MessageAdapter(this, messageList)
+
+        chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        chatRecyclerView.adapter = messageAdapter
+
+        //logic for dding chats to recyclerView
+        mDbRef.child("chats").child(senderRoom!!).child("messages")
+            .addValueEventListener(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    messageList.clear()
+
+                    for (postSnapshot in snapshot.children){
+
+                        val message = postSnapshot.getValue(com.example.si_chatapp.Message::class.java)
+                        messageList.add(message!!)
+
+                    }
+                    messageAdapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            } )
+
+
+
 
         //adding the message to database
         sendButton.setOnClickListener {

@@ -29,6 +29,7 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
 
             intent.putExtra("name", currentUser.name)
             intent.putExtra("uid", currentUser.uid)
+//            intent.putExtra("choice", currentUser.choice)
 
             context.startActivity(intent)
         }
