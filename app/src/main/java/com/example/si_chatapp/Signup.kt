@@ -87,14 +87,16 @@ class Signup : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
-
                     if (choice){
-                        val intent = Intent(this@Signup, Switch::class.java)
-                        startActivity(intent)
+                        addMentorToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
+                        Intent(this@Signup, Switch::class.java).also {
+                            startActivity(it)
+                        }
                     }else{
-                        val intent = Intent(this@Signup, MainActivity::class.java)
-                        startActivity(intent)
+                        addStudentToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
+                        Intent(this@Signup, StudentSwitch::class.java).also {
+                            startActivity(it)
+                        }
                     }
 
                 } else {
@@ -104,10 +106,17 @@ class Signup : AppCompatActivity() {
 
     }
 
-    private fun addUserToDatabase(name: String, email: String, uid: String, choice: Boolean){
+    private fun addMentorToDatabase(name: String, email: String, uid: String, choice: Boolean){
 
-        mDbRef = FirebaseDatabase.getInstance().getReference()
-        mDbRef.child("User").child(uid).setValue(User(name, email, uid, choice))
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("User").child("Mentor").child(name).setValue(User(name, email, uid, choice))
+
+    }
+
+    private fun addStudentToDatabase(name: String, email: String, uid: String, choice: Boolean){
+
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("User").child("Student").child(name).setValue(User(name, email, uid, choice))
 
     }
 }

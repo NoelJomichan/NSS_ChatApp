@@ -14,38 +14,97 @@
         android:layout_marginTop="70dp"
         android:src="@drawable/logo1" />
 
-    <EditText
-        android:id="@+id/edt_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/app_logo"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="40dp"
-        android:height="40dp"
-        android:background="@drawable/edt_background"
-        android:hint="Email"
-        android:paddingLeft="15dp" />
+<!--    <EditText-->
+<!--        android:id="@+id/edt_email"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/app_logo"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        android:height="40dp"-->
+<!--        android:background="@drawable/edt_background"-->
+<!--        android:hint="Email"-->
+<!--        android:paddingLeft="15dp" />-->
 
-    <EditText
-        android:id="@+id/edt_password"
+<!--    <EditText-->
+<!--        android:id="@+id/edt_password"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/edt_email"-->
+<!--        android:background="@drawable/edt_background"-->
+<!--        android:height="40dp"-->
+<!--        android:paddingLeft="15dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:hint="Password"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="20dp"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_email"
-        android:background="@drawable/edt_background"
-        android:height="40dp"
-        android:paddingLeft="15dp"
         android:layout_marginTop="15dp"
-        android:hint="Password"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@+id/app_logo"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginHorizontal="20dp"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@+id/email_container"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLength="16"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/Login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_password"
+        android:layout_below="@id/password_container"
         android:text="Log in"
         android:width="100dp"
         android:layout_marginTop="25dp"
@@ -57,7 +116,7 @@
         android:id="@+id/Signup_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edt_password"
+        android:layout_below="@id/password_container"
         android:layout_alignLeft="@id/Login_btn"
         android:text="Sign Up"
         android:width="100dp"

@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
-import com.google.android.material.button.MaterialButtonToggleGroup
 
 @SuppressLint("StaticFieldLeak")
 private lateinit var next_btn: Button
@@ -21,7 +18,7 @@ class Switch : AppCompatActivity() {
         next_btn = findViewById(R.id.next_btn)
 
         next_btn.setOnClickListener{
-            val intent = Intent(this@Switch, MainActivity::class.java)
+            val intent = Intent(this@Switch, MentorMainActivity::class.java)
             startActivity(intent)
         }
 

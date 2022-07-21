@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 class Login : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class Login : AppCompatActivity() {
     private lateinit var signupBtn : Button
 
     private lateinit var mAuth : FirebaseAuth
+    private lateinit var mDbRef : DatabaseReference
 
 
 
@@ -25,6 +27,9 @@ class Login : AppCompatActivity() {
 
 
         mAuth = FirebaseAuth.getInstance()
+
+
+        mDbRef = FirebaseDatabase.getInstance().getReference()
 
         edtEmail = findViewById(R.id.edt_email)
         edtPassword = findViewById(R.id.edt_password)
@@ -52,8 +57,36 @@ class Login : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-                    val intent = Intent(this@Login, MainActivity::class.java)
-                    startActivity(intent)
+                    mDbRef.child("User").addValueEventListener(object : ValueEventListener{
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+
+                            for (postSnapshot in snapshot.children){
+
+                                val currentUser = postSnapshot.getValue(User::class.java)
+
+                                if (currentUser?.choice == true){
+                                    val intent = Intent(this@Login, MentorMainActivity::class.java)
+                                    startActivity(intent)
+
+                                }else{
+                                    val intent = Intent(this@Login, MainActivity::class.java)
+                                    startActivity(intent)
+                                }
+
+                            }
+
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                        }
+
+                    })
+
+
+
+//                    val intent = Intent(this@Login, MainActivity::class.java)
+//                    startActivity(intent)
 
                 } else {
                     Toast.makeText(this@Login, "User Doesn't Exist", Toast.LENGTH_SHORT).show()

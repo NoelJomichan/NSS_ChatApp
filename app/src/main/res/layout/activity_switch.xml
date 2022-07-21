@@ -1,20 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Switch">
 
+   <ScrollView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      >
 
-    <Button
-        android:id="@+id/next_btn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="93dp"
-        android:layout_height="45dp"
-        android:text="Next"
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/mentor_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/mentor_registration"
+        android:textSize="30sp"
+        android:layout_margin="20dp"
+        android:gravity="center"
 
         />
 
+    <TextView
+        android:id="@+id/mentor_qualifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mentor_heading"
+        android:text="@string/qualification"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <CheckBox
+        android:id="@+id/m_q1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mentor_qualifications"
+        android:layout_marginStart="15dp"
+        android:text="@string/qualification1"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_q2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_q1"
+        android:layout_marginStart="15dp"
+        android:text="@string/qualification2"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_q3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_q2"
+        android:layout_marginStart="15dp"
+        android:text="@string/qualification3"
+        android:textSize="20sp"
+
+        />
+
+   <EditText
+       android:id="@+id/other_q"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/m_q3"
+       android:layout_marginStart="15sp"
+       android:layout_marginEnd="15sp"
+       android:autofillHints=""
+       android:hint="@string/other"
+       android:inputType="text"
+       android:minHeight="48dp" />
+
+
+    <TextView
+        android:id="@+id/mentor_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/other_q"
+        android:text="@string/available_feasible_time_hours"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <CheckBox
+        android:id="@+id/m_t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mentor_time"
+        android:layout_marginStart="15dp"
+        android:text="Morning (7:00 - 12:00)"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_t1"
+        android:layout_marginStart="15dp"
+        android:text="Afternoon (12:00 - 16:00)"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_t3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_t2"
+        android:layout_marginStart="15dp"
+        android:text="Evening (16:00 - 22:00)"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_t4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_t3"
+        android:layout_marginStart="15dp"
+        android:text="24/7"
+        android:textSize="20sp"
+
+        />
+
+   <EditText
+       android:id="@+id/other_t"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/m_t4"
+       android:layout_marginStart="15sp"
+       android:layout_marginEnd="15sp"
+       android:autofillHints=""
+       android:hint="@string/other"
+       android:inputType="text"
+       android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/mentor_interests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/other_t"
+        android:text="Interested Areas of Queries"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <CheckBox
+        android:id="@+id/m_i1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mentor_interests"
+        android:layout_marginStart="15dp"
+        android:text="Area1"
+        android:textSize="20sp"
+
+        />
+    <CheckBox
+        android:id="@+id/m_i2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/m_i1"
+        android:layout_marginStart="15dp"
+        android:text="Area2"
+        android:textSize="20sp"
+
+        />
+
+   <CheckBox
+       android:id="@+id/m_i3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/m_i2"
+       android:layout_marginStart="15dp"
+       android:text="Area3"
+
+       android:textSize="20sp" />
+
+          <EditText
+              android:id="@+id/other_i"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/m_i3"
+              android:layout_marginStart="15sp"
+              android:layout_marginEnd="15sp"
+              android:autofillHints=""
+              android:hint="@string/other"
+              android:inputType="text"
+              android:minHeight="48dp" />
+
+
+          <Button
+              android:id="@+id/next_btn"
+              style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+              android:layout_width="93dp"
+              android:layout_height="48dp"
+              android:layout_below="@id/other_i"
+              android:layout_alignParentEnd="true"
+              android:layout_marginStart="15sp"
+              android:layout_marginTop="15sp"
+              android:layout_marginEnd="15sp"
+              android:layout_marginBottom="15sp"
+              android:text="Next" />
+
+
+      </RelativeLayout>
+
+   </ScrollView>
 
 </RelativeLayout>

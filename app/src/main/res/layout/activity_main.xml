@@ -21,23 +21,22 @@
 <!--        android:backgroundTint="@color/teal_200"/>-->
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:listitem="@layout/user_layout" />
-
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/userRecyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:layout_editor_absoluteX="1dp"-->
+<!--        tools:layout_editor_absoluteY="1dp"-->
+<!--        tools:listitem="@layout/user_layout" />-->
 
 
     <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_above="@+id/coordinatorLayout"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
