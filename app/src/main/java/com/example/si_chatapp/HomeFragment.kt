@@ -1,4 +1,4 @@
-package com.example.si_chatapp.fragments
+package com.example.si_chatapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

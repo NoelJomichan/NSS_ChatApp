@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.si_chatapp.fragments.ChatFragment
+import com.example.si_chatapp.ChatFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class UserAdapter(val context: ChatFragment, val userList: ArrayList<User>):

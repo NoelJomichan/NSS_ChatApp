@@ -11,10 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.si_chatapp.databinding.ActivityMainBinding
-import com.example.si_chatapp.fragments.ChatFragment
-import com.example.si_chatapp.fragments.HomeFragment
-import com.example.si_chatapp.fragments.ProfileFragment
-import com.example.si_chatapp.fragments.SettingsFragment
+import com.example.si_chatapp.ChatFragment
+import com.example.si_chatapp.HomeFragment
+import com.example.si_chatapp.ProfileFragment
+import com.example.si_chatapp.SettingsFragment
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -33,14 +34,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(ChatFragment())
+
 
         bottomNavView = findViewById(R.id.bottomNavView)
         bottomNavView.background = null
         bottomNavView.menu.getItem(2).isEnabled = false
 
-        replaceFragment(ChatFragment())
+
+
+
 
         binding.bottomNavView.setOnItemSelectedListener {
+
+
 
             when(it.itemId){
 

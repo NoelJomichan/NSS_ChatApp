@@ -1,4 +1,4 @@
-package com.example.si_chatapp.fragments
+package com.example.si_chatapp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -93,7 +93,9 @@ class ChatFragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
 
-        mDbRef.child("User").child("Mentor").addValueEventListener(object: ValueEventListener{
+
+
+        mDbRef.child("User").addValueEventListener(object: ValueEventListener{
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
@@ -101,7 +103,11 @@ class ChatFragment : Fragment() {
                 for (postSnapshot in snapshot.children){
 
                     val currentUser = postSnapshot.getValue(User::class.java)
-                    userList.add(currentUser!!)
+                    if()
+                        userList.add(currentUser!!)
+//                    else if (!currentUser?.choice)
+//                        userList.add(currentUser!!)
+
                 }
                 adapter.notifyDataSetChanged()
             }

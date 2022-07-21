@@ -87,13 +87,14 @@ class Signup : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid, choice)
                     if (choice){
-                        addMentorToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
+//                        addMentorToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
                         Intent(this@Signup, Switch::class.java).also {
                             startActivity(it)
                         }
                     }else{
-                        addStudentToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
+//                        addStudentToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
                         Intent(this@Signup, StudentSwitch::class.java).also {
                             startActivity(it)
                         }
@@ -103,6 +104,13 @@ class Signup : AppCompatActivity() {
                     Toast.makeText(this@Signup, "Authentication Error(Sign Up)", Toast.LENGTH_SHORT).show()
                 }
             }
+
+    }
+
+    private fun addUserToDatabase(name: String, email: String, uid: String?, choice: Boolean) {
+
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("User").child("$name $choice").setValue(User(name, email, uid, choice))
 
     }
 
