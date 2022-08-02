@@ -1,6 +1,5 @@
 package com.example.si_chatapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,11 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.si_chatapp.databinding.ActivityMainBinding
-import com.example.si_chatapp.ChatFragment
-import com.example.si_chatapp.HomeFragment
 import com.example.si_chatapp.ProfileFragment
 import com.example.si_chatapp.SettingsFragment
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -29,12 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth        //LogOut
 
+    private lateinit var mDbRef: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(ChatFragment())
+        replaceFragment(HomeFragment())
 
 
         bottomNavView = findViewById(R.id.bottomNavView)
@@ -42,34 +39,26 @@ class MainActivity : AppCompatActivity() {
         bottomNavView.menu.getItem(2).isEnabled = false
 
 
+        mDbRef = FirebaseDatabase.getInstance().reference
 
 
-
-        binding.bottomNavView.setOnItemSelectedListener {
-
+            binding.bottomNavView.setOnItemSelectedListener {
 
 
-            when(it.itemId){
+                when(it.itemId){
 
-                R.id.navHome -> replaceFragment(HomeFragment())
-                R.id.navChat -> replaceFragment(ChatFragment())
-                R.id.navSettings -> replaceFragment(SettingsFragment())
-                R.id.navProfile -> replaceFragment(ProfileFragment())
+                    R.id.navHome -> replaceFragment(HomeFragment())
+                    R.id.navChat -> replaceFragment(ChatFragment())
+                    R.id.navSettings -> replaceFragment(SettingsFragment())
+                    R.id.navProfile -> replaceFragment(ProfileFragment())
 
-                else ->{
+                    else ->{}
 
                 }
+                true
 
             }
-            true
 
-        }
-
-//        val homeFragment = HomeFragment()
-//        val chatFragment = ChatFragment()
-//        val profileFragment = ProfileFragment()
-//        val settingsFragment = SettingsFragment()
-//
 
         mAuth = FirebaseAuth.getInstance()      //LogOut
 //

@@ -17,6 +17,9 @@
           android:layout_height="match_parent">
 
 
+
+
+
     <TextView
         android:id="@+id/mentor_heading"
         android:layout_width="match_parent"
@@ -27,6 +30,8 @@
         android:gravity="center"
 
         />
+
+
 
     <TextView
         android:id="@+id/mentor_qualifications"

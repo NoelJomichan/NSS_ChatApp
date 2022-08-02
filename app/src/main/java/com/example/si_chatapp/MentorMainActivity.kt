@@ -46,12 +46,13 @@ class MentorMainActivity : AppCompatActivity() {
 
         binding.bottomNavView.setOnItemSelectedListener {
 
-            replaceFragment(ChatFragment())
+            replaceFragment(HomeFragment())
 
             when(it.itemId){
 
                 R.id.navHome -> replaceFragment(HomeFragment())
-                R.id.navChat -> replaceFragment(ChatFragment())
+//                R.id.navChat -> replaceFragment(ChatFragment())
+                R.id.navChat -> replaceFragment(MentorChatFragment())
                 R.id.navSettings -> replaceFragment(SettingsFragment())
                 R.id.navProfile -> replaceFragment(ProfileFragment())
 

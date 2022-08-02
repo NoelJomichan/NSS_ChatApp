@@ -6,22 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.si_chatapp.ChatFragment
 import com.google.firebase.auth.FirebaseAuth
 
-class UserAdapter(val context: ChatFragment, val userList: ArrayList<User>):
+class UserAdapter(val context: Fragment, val userList: ArrayList<User>):
 
 //class UserAdapter(val userList: ArrayList<User>):
-    RecyclerView.Adapter<UserAdapter.userViewHolder>() {
+    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): userViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.user_layout, parent, false)
-        return userViewHolder(view)
+        return UserViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: userViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+
 
         val currentUser = userList[position]
 
@@ -43,8 +45,8 @@ class UserAdapter(val context: ChatFragment, val userList: ArrayList<User>):
         return userList.size
     }
 
-    class userViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val textName = itemView.findViewById<TextView>(R.id.txt_name)
+    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val textName = itemView.findViewById<TextView>(R.id.user_name)
     }
 
 }

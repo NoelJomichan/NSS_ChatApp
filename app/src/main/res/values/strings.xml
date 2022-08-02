@@ -27,4 +27,7 @@
     <string name="gender">Gender</string>
     <string name="student_registration">Student Registration</string>
     <string name="home_fragment">Home Fragment</string>
+    <string name="mentor">Mentor</string>
+    <string name="student">Student</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
