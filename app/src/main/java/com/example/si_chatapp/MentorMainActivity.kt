@@ -43,10 +43,9 @@ class MentorMainActivity : AppCompatActivity() {
         mDbRef = FirebaseDatabase.getInstance().reference
 
 
+        supportFragmentManager.beginTransaction().add(R.id.frameLayout, HomeFragment()).addToBackStack(null).commit()
 
         binding.bottomNavView.setOnItemSelectedListener {
-
-            replaceFragment(HomeFragment())
 
             when(it.itemId){
 

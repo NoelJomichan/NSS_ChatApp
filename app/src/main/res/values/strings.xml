@@ -30,4 +30,7 @@
     <string name="mentor">Mentor</string>
     <string name="student">Student</string>
     <string name="sign_up">Sign Up</string>
+    <string name="pass_word">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="user_profile_fragment">User Profile Fragment</string>
 </resources>

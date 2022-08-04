@@ -20,6 +20,7 @@ class Signup : AppCompatActivity() {
     private lateinit var edtPassword : EditText
     private lateinit var edtName : EditText
     private lateinit var signupBtn : Button
+    private lateinit var edtNumber: EditText
 
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mDbRef : DatabaseReference
@@ -39,6 +40,7 @@ class Signup : AppCompatActivity() {
         edtPassword = findViewById(R.id.edt_password)
         edtName = findViewById(R.id.edt_name)
         signupBtn = findViewById(R.id.Signup_btn)
+        edtNumber = findViewById(R.id.edt_number)
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -66,8 +68,9 @@ class Signup : AppCompatActivity() {
             val name = edtName.text.toString()
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
+            val number = edtNumber.text.toString()
 
-            signUp(name, email, password)
+            signUp(name, email, password, number)
         }
 
     }
@@ -81,13 +84,13 @@ class Signup : AppCompatActivity() {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 
-    private fun signUp(name: String, email: String, password: String){
+    private fun signUp(name: String, email: String, password: String, number: String){
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-                    addUserToDatabase(name, email, mAuth.currentUser?.uid, choice)
+                    addUserToDatabase(name, email, number, mAuth.currentUser?.uid, choice)
                     if (choice){
 //                        addMentorToDatabase(name, email, mAuth.currentUser?.uid!!, choice)
                         Intent(this@Signup, Switch::class.java).also {
@@ -107,26 +110,26 @@ class Signup : AppCompatActivity() {
 
     }
 
-    private fun addUserToDatabase(name: String, email: String, uid: String?, choice: Boolean) {
+    private fun addUserToDatabase(name: String, email: String, number: String, uid: String?, choice: Boolean) {
 
         mDbRef = FirebaseDatabase.getInstance().reference
 //        mDbRef.child("User").child("$name $choice").setValue(User(name, email, uid, choice))
 
-        mDbRef.child("User").child("$name $choice").setValue(User(name, email, uid, choice))
+        mDbRef.child("User").child("$name $choice").setValue(User(name, email, number, uid, choice))
 
     }
 
-    private fun addMentorToDatabase(name: String, email: String, uid: String, choice: Boolean){
-
-        mDbRef = FirebaseDatabase.getInstance().reference
-        mDbRef.child("User").child("Mentor").child(name).setValue(User(name, email, uid, choice))
-
-    }
-
-    private fun addStudentToDatabase(name: String, email: String, uid: String, choice: Boolean){
-
-        mDbRef = FirebaseDatabase.getInstance().reference
-        mDbRef.child("User").child("Student").child(name).setValue(User(name, email, uid, choice))
-
-    }
+//    private fun addMentorToDatabase(name: String, email: String, uid: String, choice: Boolean){
+//
+//        mDbRef = FirebaseDatabase.getInstance().reference
+//        mDbRef.child("User").child("Mentor").child(name).setValue(User(name, email, uid, choice))
+//
+//    }
+//
+//    private fun addStudentToDatabase(name: String, email: String, uid: String, choice: Boolean){
+//
+//        mDbRef = FirebaseDatabase.getInstance().reference
+//        mDbRef.child("User").child("Student").child(name).setValue(User(name, email, uid, choice))
+//
+//    }
 }

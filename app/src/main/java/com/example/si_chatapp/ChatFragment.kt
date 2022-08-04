@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.si_chatapp.R
 import com.example.si_chatapp.User
 import com.example.si_chatapp.UserAdapter
+import com.example.si_chatapp.databinding.ActivityChatBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
