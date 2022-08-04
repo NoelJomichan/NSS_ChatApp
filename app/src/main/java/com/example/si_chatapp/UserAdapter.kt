@@ -38,10 +38,10 @@ class UserAdapter(val context: Fragment, val userList: ArrayList<User>):
 
                 val bundle = Bundle()
                 bundle.putString("name", currentUser.name)
-//                bundle.putString("number", currentUser.number)
-//                bundle.putString("email", currentUser.email)
-//                bundle.putString("uid", currentUser.uid)
-//                bundle.putBoolean("choice", currentUser.choice)
+                bundle.putString("number", currentUser.number)
+                bundle.putString("email", currentUser.email)
+                bundle.putString("uid", currentUser.uid)
+                bundle.putBoolean("choice", currentUser.choice)
 
                 val activity = v!!.context as AppCompatActivity
 

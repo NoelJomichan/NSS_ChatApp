@@ -33,4 +33,9 @@
     <string name="pass_word">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="user_profile_fragment">User Profile Fragment</string>
+    <string name="name">Name</string>
+    <string name="emails">Email</string>
+    <string name="email_id">Email Id</string>
+    <string name="_9999999999">9999999999</string>
+    <string name="phone">Phone</string>
 </resources>
