@@ -41,15 +41,16 @@ class MainActivity : AppCompatActivity() {
 
         mDbRef = FirebaseDatabase.getInstance().reference
 
+        supportFragmentManager.beginTransaction().add(R.id.frameLayout, HomeFragment()).addToBackStack(null).commit()
 
-            binding.bottomNavView.setOnItemSelectedListener {
+        binding.bottomNavView.setOnItemSelectedListener {
 
 
                 when(it.itemId){
 
                     R.id.navHome -> replaceFragment(HomeFragment())
-                    R.id.navChat -> replaceFragment(ChatFragment())
-                    R.id.navSettings -> replaceFragment(SettingsFragment())
+                    R.id.navSearch -> replaceFragment(ChatFragment())
+                    R.id.navChat -> replaceFragment(SettingsFragment())
                     R.id.navProfile -> replaceFragment(ProfileFragment())
 
                     else ->{}

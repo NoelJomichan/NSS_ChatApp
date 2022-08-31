@@ -103,10 +103,10 @@ class ChatFragment : Fragment() {
                 for (postSnapshot in snapshot.children){
 
                     val currentUser = postSnapshot.getValue(User::class.java)
-                    if (currentUser?.uid != mAuth.currentUser?.uid)
-                        if(!currentUser?.choice!!)
-                            userList.add(currentUser!!)
-
+                    if (currentUser?.uid != mAuth.currentUser?.uid) {
+                        if (currentUser?.choice == true)
+                            userList.add(currentUser)
+                    }
                 }
                 adapter.notifyDataSetChanged()
             }

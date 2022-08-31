@@ -51,8 +51,8 @@ class MentorMainActivity : AppCompatActivity() {
 
                 R.id.navHome -> replaceFragment(HomeFragment())
 //                R.id.navChat -> replaceFragment(ChatFragment())
-                R.id.navChat -> replaceFragment(MentorChatFragment())
-                R.id.navSettings -> replaceFragment(SettingsFragment())
+                R.id.navSearch -> replaceFragment(MentorChatFragment())
+                R.id.navChat -> replaceFragment(SettingsFragment())
                 R.id.navProfile -> replaceFragment(ProfileFragment())
 
                 else ->{

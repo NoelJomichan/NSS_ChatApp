@@ -6,19 +6,25 @@
         android:title="Home"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/navChat"
-        android:title="Chat"
-        android:icon="@drawable/ic_chat"/>
+        android:id="@+id/navSearch"
+        android:title="User"
+        android:icon="@drawable/ic_person"
+        />
     <item
         android:id="@+id/placeHolder"
         android:title=""/>
     <item
+        android:id="@+id/navChat"
+        android:title="Chat"
+        android:icon="@drawable/ic_chat"/>
+
+    <item
         android:id="@+id/navProfile"
         android:title="Profile"
-        android:icon="@drawable/ic_person"/>
-    <item
-        android:id="@+id/navSettings"
-        android:title="Settings"
-        android:icon="@drawable/ic_settings"/>
+        android:icon="@drawable/default_profile_pic"/>
+<!--    <item-->
+<!--        android:id="@+id/navSettings"-->
+<!--        android:title="Settings"-->
+<!--        android:icon="@drawable/ic_settings"/>-->
 
 </menu>

@@ -98,7 +98,7 @@ class MentorChatFragment : Fragment() {
                     val currentUser = postSnapshot.getValue(User::class.java)
                     if (currentUser?.uid != mAuth.currentUser?.uid)
                     {
-                        if (currentUser?.choice == true)
+                        if (!currentUser!!.choice)
                             userList.add(currentUser)
                     }
 
